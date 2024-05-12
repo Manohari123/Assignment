@@ -1,0 +1,33 @@
+Problem: Armstrong Numbers
+Algorithm: To determine whether the given number is Armstrong number is not
+1.Start.
+2.Define a static method named armstrongNumber inside the class Solution. This method takes an integer num as input and returns a string ("Yes" or "No") based on whether num is an Armstrong number.
+3.Extract the individual digits of the input number num representing a 3-digit number:
+4.Calculate pos1 by dividing num by 100.
+5.Calculate pos2 by performing (num / 10) % 10.
+6.Calculate pos3 by taking the remainder when dividing num by 10.
+7.Calculate the sum of cubes of the extracted digits:
+  Use the Math.pow method to find the cube of each digit (pos1, pos2, and pos3).
+  Convert the result of each Math.pow operation to an integer to avoid precision issues.
+8.Add the cubes of the three digits to obtain res.
+9.Check if the calculated sum res is equal to the original number num.
+ If they are equal, return "Yes".
+ If they are not equal, return "No".
+10.End.
+Code:
+class Solution {
+    static String armstrongNumber(int num){
+        // code here
+//we are getting pos1,pos2,pos3 and then finding cube for each value by using Math.pow method which yields double so we are converting it into int since num is of float type
+        int pos1=num/100;
+        int pos2=(num/10)%10;
+        int pos3=num%10;
+        int res=(int)((Math.pow(pos1,3))+(Math.pow(pos2,3))+(Math.pow(pos3,3)));
+        if(res==num)
+            return "Yes";
+        else
+           return "No";
+    }
+}
+Time Complexity:O(1)
+Space complexity:O(1)
